@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Sidebar from "./component/Sidebar";
+import MiniSidebar from "./component/MiniSidebar";
 
 export const metadata: Metadata = {
   title: "Manage your money & expenses",
@@ -20,6 +21,9 @@ export default function RootLayout({
             <Sidebar />
           </div>
           <div className="xl:grow">{children}</div>
+          <div className="xl:hidden">
+            <MiniSidebar />
+          </div>
         </div>
       </body>
     </html>
