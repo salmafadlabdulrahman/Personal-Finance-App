@@ -20,13 +20,13 @@ const MiniSidebar = () => {
               } w-[90px] md:w-[120px] lg:w-[150px]  flex justify-center mt-3 rounded-t-xl`} 
             >
               <Link href={nav.path}>
-                <div className="md:flex flex-col items-center ">
+                <div className="flex md:flex-col items-center h-full ">
                   <Image
                     src={pathname === nav.path ? nav.activeIcon : nav.icon}
                     alt="icon"
                     width={20}
                     height={20}
-                    className="mt-3"
+                    className="md:mt-3"
                   />
                   <p
                     className={`hidden md:block font-bold ${
