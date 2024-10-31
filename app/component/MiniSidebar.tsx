@@ -17,7 +17,7 @@ const MiniSidebar = () => {
                 pathname === nav.path
                   ? "bg-beige-100 border-b-4 border-green "
                   : ""
-              } w-[90px] md:w-[120px] lg:w-[150px]  flex justify-center mt-3 rounded-t-xl`} 
+              } w-[90px] md:w-[120px] lg:w-[150px] flex justify-center mt-3 rounded-t-xl`} 
             >
               <Link href={nav.path}>
                 <div className="flex md:flex-col items-center h-full ">
@@ -26,12 +26,12 @@ const MiniSidebar = () => {
                     alt="icon"
                     width={20}
                     height={20}
-                    className="md:mt-3"
+                    className="h-[30px]"
                   />
                   <p
                     className={`hidden md:block font-bold ${
                       pathname === nav.path ? "text-grey900" : "text-grey300"
-                    } text-[13px] mt-2`}
+                    } text-[13px]`}
                   >
                     {nav.item}
                   </p>
