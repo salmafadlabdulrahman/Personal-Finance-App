@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Sidebar from "./component/Sidebar";
 import MiniSidebar from "./component/MiniSidebar";
+import { SidebarProvider } from "./SidebarContext";
+import ContentWrapper from "./ContentWrapper";
 
 export const metadata: Metadata = {
   title: "Manage your money & expenses",
@@ -16,15 +18,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="xl:flex gap-[20em]">
-          <div className="hidden xl:block ">
-            <Sidebar />
-          </div>
-          <div className="xl:grow">{children}</div>
-          <div className="xl:hidden">
-            <MiniSidebar />
-          </div>
-        </div>
+        <SidebarProvider>
+          <ContentWrapper>
+            <div className="hidden xl:block">
+              <Sidebar />
+            </div>
+            <div className="xl:grow">{children}</div>
+            <div className="xl:hidden">
+              <MiniSidebar />
+            </div>
+          </ContentWrapper>
+        </SidebarProvider>
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ const Overview = () => {
   const { current, income, expenses } = data.balance;
   return (
     <div>
-      <div className="p-5 md:p-9">
+      <div className="p-5 md:p-9 border border-indigo-700"> {/*p-5 md:p-9 */}
         <h2 className="font-bold text-[2em]">Overview</h2>
         <div className="mt-8 md:flex items-center justify-center gap-5">
           <Card
