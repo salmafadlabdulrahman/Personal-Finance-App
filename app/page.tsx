@@ -1,13 +1,16 @@
-import PotsCard from "./component/PotsCard";
+import PotsCard from "./components/PotsCard";
+import TransactionsCard from "./components/TransactionsCard";
 import Overview from "./pages/overview/page";
 
 export default function Home() {
   return (
-    <div className="">
-      {/*<Overview />*/}
+    <div>
       <div className="p-5 md:p-9 ">
         <Overview />
-        <PotsCard />
+        <div>
+          <PotsCard />
+          <TransactionsCard />
+        </div>
       </div>
     </div>
   );

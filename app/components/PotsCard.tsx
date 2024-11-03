@@ -12,8 +12,8 @@ const pots = [
 
 const PotsCard = () => {
   return (
-    <div className="bg-white rounded-lg mt-[2em] text-grey900 px-5 py-6 mb-[5em]">
-      <div className="flex items-center justify-between">
+    <div className="bg-white rounded-xl mt-[2em] text-grey900 px-5 py-6 mb-[5em]">
+      <div className="flex items-center justify-between ">
         <p className="font-bold text-[1.3em]">Pots</p>
         <p className="flex items-center gap-3">
           <Link href={"/pages/pots"} className="text-grey500 text-[.9em]">
@@ -29,7 +29,7 @@ const PotsCard = () => {
       </div>
 
       <div className="md:flex items-center gap-6">
-        <div className="mt-3">
+        <div className="mt-3 md:w-[250px] ">
           <Card
             background={"bg-beige-100"}
             category="total saved"
@@ -43,7 +43,7 @@ const PotsCard = () => {
           {pots.map((pot, i) => (
             <div
               key={i}
-              className="w-[50%] mt-4 p-2 border-l-4 border-indigo-700 rounded-l"
+              className="w-[50%] mb-4 p-2 md:px-2 md:p-0  border-l-4 border-indigo-700 rounded-l"
             >
               <p className="text-grey500 text-[.8em]">{pot.category}</p>
               <p className="text-grey900 font-bold text-[.9em]">

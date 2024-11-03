@@ -1,6 +1,6 @@
 import React from "react";
 import data from "../../../data.json";
-import Card from "@/app/component/Card";
+import Card from "@/app/components/Card";
 
 const Overview = () => {
   const { current, income, expenses } = data.balance;

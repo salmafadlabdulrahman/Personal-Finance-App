@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Sidebar from "./component/Sidebar";
-import MiniSidebar from "./component/MiniSidebar";
+import Sidebar from "./components/Sidebar";
+import MiniSidebar from "./components/MiniSidebar";
 import { SidebarProvider } from "./SidebarContext";
 import ContentWrapper from "./ContentWrapper";
 
