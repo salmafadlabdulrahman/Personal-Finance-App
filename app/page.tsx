@@ -8,7 +8,7 @@ export default function Home() {
     <div>
       <div className="p-5 md:p-9 ">
         <Overview />
-        <div className="lg:flex items-center gap-3">
+        <div className="lg:flex items-center gap-5">
           <div>
             <PotsCard />
             <TransactionsCard />

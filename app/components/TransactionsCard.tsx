@@ -28,7 +28,11 @@ const TransactionsCard = () => {
         {transactionsData.map((transaction, i) => (
           <div
             key={i}
-            className="flex items-center justify-between h-[90px] border-b-[1px] border-gray-200"
+            className={`flex items-center justify-between h-[90px] ${
+              i !== transactionsData.length - 1
+                ? "border-b-[1px] border-gray-200"
+                : ""
+            }`}
           >
             <div className="flex items-center gap-5 ">
               <Image

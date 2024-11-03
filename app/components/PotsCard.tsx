@@ -1,12 +1,6 @@
 import Card from "./Card";
 import CardHeader from "./CardHeader";
-
-const pots = [
-  { category: "Savings", amount: 159 },
-  { category: "Gift", amount: 40 },
-  { category: "Concert Ticket", amount: 110 },
-  { category: "New Laotop", amount: 10 },
-];
+import data from "../../data.json";
 
 const PotsCard = () => {
   return (
@@ -25,15 +19,13 @@ const PotsCard = () => {
         </div>
 
         <div className="flex items-center flex-wrap mt-4">
-          {pots.map((pot, i) => (
+          {data.pots.map((pot, i) => (
             <div
               key={i}
-              className="w-[50%] mb-4 p-2 md:px-2 md:p-0  border-l-4 border-indigo-700 rounded-l"
+              className={`w-[50%] mb-4 p-2 md:px-2 md:p-0 border-l-4 border-[${pot.theme}] rounded-l`} //${pot.theme}
             >
-              <p className="text-grey500 text-[.8em]">{pot.category}</p>
-              <p className="text-grey900 font-bold text-[.9em]">
-                ${pot.amount}
-              </p>
+              <p className="text-grey500 text-[.8em]">{pot.name}</p>
+              <p className="text-grey900 font-bold text-[.9em]">${pot.total}</p>
             </div>
           ))}
         </div>
