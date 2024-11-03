@@ -15,3 +15,18 @@ body {
   font-family: "Public Sans", sans-serif;
   background: #F8F4F0;
 }
+
+@layer utilities {
+  .card-style {
+    background-color: white;
+    margin-top: 2em;
+    border-radius: 0.75rem;
+    color: #201F24;
+    padding: 1.5rem 1.25rem;
+  }
+  .flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

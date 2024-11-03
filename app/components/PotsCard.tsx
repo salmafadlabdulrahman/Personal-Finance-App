@@ -12,8 +12,8 @@ const pots = [
 
 const PotsCard = () => {
   return (
-    <div className="bg-white rounded-xl mt-[2em] text-grey900 px-5 py-6 mb-[5em]">
-      <div className="flex items-center justify-between ">
+    <div className="card-style">
+      <div className="flex-row">
         <p className="font-bold text-[1.3em]">Pots</p>
         <p className="flex items-center gap-3">
           <Link href={"/pages/pots"} className="text-grey500 text-[.9em]">
@@ -39,7 +39,7 @@ const PotsCard = () => {
           />
         </div>
 
-        <div className="flex items-center flex-wrap">
+        <div className="flex items-center flex-wrap mt-4">
           {pots.map((pot, i) => (
             <div
               key={i}
