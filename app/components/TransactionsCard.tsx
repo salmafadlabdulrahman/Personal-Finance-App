@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import data from "../../data.json";
+import CardHeader from "./CardHeader";
 
 const TransactionsCard = () => {
   const transactionsData = data.transactions.slice(0, 5);
@@ -21,23 +21,10 @@ const TransactionsCard = () => {
   };
 
   return (
-    <div className="card-style mb-[5em]">
-      <div className="flex-row ">
-        <p className="font-bold text-[1.3em]">Transactions</p>
-        <p className="flex items-center gap-3">
-          <Link href={"/pages/pots"} className="text-grey500 text-[.9em]">
-            View All
-          </Link>
-          <Image
-            src={"/assets/images/icon-caret-right.svg"}
-            alt="right arrow"
-            width={6}
-            height={6}
-          />
-        </p>
-      </div>
+    <div className="card-style md:p-[2em] ">
+      <CardHeader title="Transactions" detailsLink="View All" />
 
-      <div className="">
+      <div>
         {transactionsData.map((transaction, i) => (
           <div
             key={i}

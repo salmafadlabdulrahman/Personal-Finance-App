@@ -1,7 +1,5 @@
-import Link from "next/link";
-import React from "react";
 import Card from "./Card";
-import Image from "next/image";
+import CardHeader from "./CardHeader";
 
 const pots = [
   { category: "Savings", amount: 159 },
@@ -13,20 +11,7 @@ const pots = [
 const PotsCard = () => {
   return (
     <div className="card-style">
-      <div className="flex-row">
-        <p className="font-bold text-[1.3em]">Pots</p>
-        <p className="flex items-center gap-3">
-          <Link href={"/pages/pots"} className="text-grey500 text-[.9em]">
-            See Details
-          </Link>
-          <Image
-            src={"/assets/images/icon-caret-right.svg"}
-            alt="right arrow"
-            width={6}
-            height={6}
-          />
-        </p>
-      </div>
+      <CardHeader title="Pots" detailsLink="See All" />
 
       <div className="md:flex items-center gap-6">
         <div className="mt-3 md:w-[250px] ">
