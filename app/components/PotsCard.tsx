@@ -4,17 +4,18 @@ import data from "../../data.json";
 
 const PotsCard = () => {
   return (
-    <div className="card-style">
+    <div className="card-style mt-[1em] lg:mt-0">
       <CardHeader title="Pots" detailsLink="See All" />
 
       <div className="md:flex items-center gap-6">
-        <div className="mt-3 md:w-[250px] ">
+        <div className="mt-3 md:w-[250px] lg:w-[350px] ">
           <Card
             background={"bg-beige-100"}
             category="total saved"
             val={850}
             textColor="text-grey900"
             icon="/assets/images/icon-pot.svg"
+            twoDigits={true}
           />
         </div>
 

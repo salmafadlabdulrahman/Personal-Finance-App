@@ -6,9 +6,10 @@ interface CardProps {
   background: string;
   textColor: string;
   icon?: string;
+  twoDigits?: boolean
 }
 
-const Card = ({ category, val, background, textColor, icon }: CardProps) => {
+const Card = ({ category, val, background, textColor, icon, twoDigits }: CardProps) => {
   return (
     <div
       className={`${background} rounded-xl mb-3 px-5 py-4 w-full ${
@@ -31,10 +32,10 @@ const Card = ({ category, val, background, textColor, icon }: CardProps) => {
         </h3>
         <p className={`${textColor} text-[2em] font-bold mt-2`}>
           $
-          {val.toLocaleString("en-US", {
+          {twoDigits ? val.toLocaleString("en-US", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
-          })}
+          }) : val}
         </p>
       </div>
     </div>

@@ -6,7 +6,7 @@ import budgetData from "../../data.json";
 const budgets = budgetData.budgets;
 const BudgetsCard = () => {
   return (
-    <div className="card-style">
+    <div className="card-style mb-[2em] lg:mb-0"> 
       <CardHeader title="Budgets" detailsLink="See Details" />
       <BudgetCircleChart data={budgets} />
       <div className="flex flex-wrap mt-5">

@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <div className="p-5 md:p-9 ">
         <Overview />
-        <div className="lg:flex items-center gap-5">
+        <div className="xl:flex gap-5 mt-2">
           <div>
             <PotsCard />
             <TransactionsCard />

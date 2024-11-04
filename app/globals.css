@@ -19,10 +19,11 @@ body {
 @layer utilities {
   .card-style {
     background-color: white;
-    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1.25rem;
     border-radius: 0.75rem;
     color: #201F24;
-    padding: 1.5rem 1.25rem;
+    
   }
   .flex-row {
     display: flex;

@@ -13,18 +13,21 @@ const Overview = () => {
           val={current}
           background="bg-grey900"
           textColor="text-white"
+          twoDigits={true}
         />
         <Card
           category="income"
           val={income}
           background="bg-white"
           textColor="text-grey900"
+          twoDigits={true}
         />
         <Card
           category="expenses"
           val={expenses}
           background="bg-white"
           textColor="text-grey900"
+          twoDigits={true}
         />
       </div>
     </div>

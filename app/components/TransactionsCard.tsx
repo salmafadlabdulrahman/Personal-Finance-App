@@ -21,7 +21,7 @@ const TransactionsCard = () => {
   };
 
   return (
-    <div className="card-style md:p-[2em] ">
+    <div className="card-style">
       <CardHeader title="Transactions" detailsLink="View All" />
 
       <div>
