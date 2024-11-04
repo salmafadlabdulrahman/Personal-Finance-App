@@ -13,7 +13,7 @@ const BudgetsCard = () => {
         {budgets.map((item, i) => (
           <div
             key={i}
-            className="flex items-center gap-4 w-[50%] mb-4  md:px-2 md:p-0 "
+            className="flex items-center gap-4 w-[50%] mb-4 md:px-2 md:p-0"
           >
             <span
               className={`block h-[40px] w-[4px] rounded-full`}

@@ -7,7 +7,7 @@ import Overview from "./pages/overview/page";
 export default function Home() {
   return (
     <div>
-      <div className="p-5 md:p-9 ">
+      <div className="p-5 md:p-9">
         <Overview />
         <div className="xl:flex gap-5 mt-2">
           <div>
@@ -19,7 +19,6 @@ export default function Home() {
             <RecurringBillsCard />
           </div>
         </div>
-        hello world
       </div>
     </div>
   );
