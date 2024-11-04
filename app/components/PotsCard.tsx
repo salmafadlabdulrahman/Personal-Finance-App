@@ -22,10 +22,19 @@ const PotsCard = () => {
           {data.pots.map((pot, i) => (
             <div
               key={i}
-              className={`w-[50%] mb-4 p-2 md:px-2 md:p-0 border-l-4 border-[${pot.theme}] rounded-l`} //${pot.theme}
+              className="flex items-center gap-2 w-[50%] mb-4 p-2 md:px-2 md:p-0"
             >
-              <p className="text-grey500 text-[.8em]">{pot.name}</p>
-              <p className="text-grey900 font-bold text-[.9em]">${pot.total}</p>
+              <span
+                className={`block h-[40px] w-[4px] rounded-full`}
+                style={{backgroundColor: pot.theme}}
+              >
+              </span>
+              <div>
+                <p className="text-grey500 text-[.8em]">{pot.name}</p>
+                <p className="text-grey900 font-bold text-[.9em]">
+                  ${pot.total}
+                </p>
+              </div>
             </div>
           ))}
         </div>

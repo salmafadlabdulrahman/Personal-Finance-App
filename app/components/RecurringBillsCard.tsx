@@ -1,9 +1,9 @@
 import CardHeader from "./CardHeader";
 
 const bills = [
-  { billType: "Paid Bills", amount: 190, theme: "green" },
-  { billType: "Total Upcoming", amount: 194.98, theme: "yellow" },
-  { billType: "Due Soon", amount: 59.98, theme: "cyan" },
+  { billType: "Paid Bills", amount: 190, theme: "#277C78" },
+  { billType: "Total Upcoming", amount: 194.98, theme: "#F2CDAC" },
+  { billType: "Due Soon", amount: 59.98, theme: "#82C9D7" },
 ];
 
 const RecurringBillsCard = () => {
@@ -14,7 +14,8 @@ const RecurringBillsCard = () => {
         {bills.map((bill, i) => (
           <div
             key={i}
-            className={`flex-row bg-beige-100 py-5 px-6 text-[.9em] rounded-2xl mb-3 border-l-4 border-${bill.theme}`} //${bill.theme}
+            className={`flex-row bg-beige-100 py-5 px-6 text-[.9em] rounded-2xl mb-3 border-l-4`}
+            style={{borderLeftColor: bill.theme}}
           >
             <p className="text-grey500">{bill.billType}</p>
             <span className="font-bold ">

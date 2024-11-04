@@ -1,3 +1,4 @@
+import BudgetsCard from "./components/BudgetsCard";
 import PotsCard from "./components/PotsCard";
 import RecurringBillsCard from "./components/RecurringBillsCard";
 import TransactionsCard from "./components/TransactionsCard";
@@ -14,6 +15,7 @@ export default function Home() {
             <TransactionsCard />
           </div>
           <div>
+            <BudgetsCard />
             <RecurringBillsCard />
           </div>
         </div>
