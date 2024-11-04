@@ -19,6 +19,7 @@ export default function Home() {
             <RecurringBillsCard />
           </div>
         </div>
+        hello world
       </div>
     </div>
   );
