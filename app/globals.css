@@ -30,4 +30,8 @@ body {
     align-items: center;
     justify-content: space-between;
   }
+
+  .pages-padding {
+    padding: 1.25rem;
+  }
 }

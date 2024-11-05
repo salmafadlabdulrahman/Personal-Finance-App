@@ -9,13 +9,17 @@ const bills = [
 const RecurringBillsCard = () => {
   return (
     <div className="card-style mt-[2.2em]">
-      <CardHeader title="Recurring Bills" detailsLink="See Details" />
+      <CardHeader
+        title="Recurring Bills"
+        detailsLink="See Details"
+        link="/pages/recurringbills"
+      />
       <div className="mt-5">
         {bills.map((bill, i) => (
           <div
             key={i}
             className={`flex-row bg-beige-100 py-5 px-6 text-[.9em] rounded-2xl mb-3 border-l-4`}
-            style={{borderLeftColor: bill.theme}}
+            style={{ borderLeftColor: bill.theme }}
           >
             <p className="text-grey500">{bill.billType}</p>
             <span className="font-bold ">

@@ -7,12 +7,12 @@ import Overview from "./pages/overview/page";
 export default function Home() {
   return (
     <div>
-      <div className="p-5 md:p-9">
+      <div className="pages-padding md:p-9">
         <Overview />
         <div className="xl:flex gap-5 mt-5">
           <div>
             <PotsCard />
-            <TransactionsCard />
+            <TransactionsCard header={true} link={true} />
           </div>
           <div className="xl:grow">
             <BudgetsCard />

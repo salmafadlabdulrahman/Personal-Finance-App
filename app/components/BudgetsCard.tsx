@@ -7,7 +7,11 @@ const budgets = budgetData.budgets;
 const BudgetsCard = () => {
   return (
     <div className={`card-style mb-[2em] lg:mb-0`}>
-      <CardHeader title="Budgets" detailsLink="See Details" />
+      <CardHeader
+        title="Budgets"
+        detailsLink="See Details"
+        link="/pages/budgets"
+      />
       <BudgetCircleChart data={budgets} />
       <div className="flex flex-wrap mt-5">
         {budgets.map((item, i) => (

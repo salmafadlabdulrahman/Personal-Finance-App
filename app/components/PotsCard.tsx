@@ -5,7 +5,7 @@ import data from "../../data.json";
 const PotsCard = () => {
   return (
     <div className="card-style mt-[1em] lg:mt-0 w-full">
-      <CardHeader title="Pots" detailsLink="See All" />
+      <CardHeader title="Pots" detailsLink="See All" link="/pages/pots" />
 
       <div className="md:flex items-center gap-6">
         <div className="mt-3 md:w-[250px] lg:w-[350px] ">
