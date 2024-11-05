@@ -4,7 +4,7 @@ import data from "../../data.json";
 
 const PotsCard = () => {
   return (
-    <div className="card-style mt-[1em] lg:mt-0">
+    <div className="card-style mt-[1em] lg:mt-0 w-full">
       <CardHeader title="Pots" detailsLink="See All" />
 
       <div className="md:flex items-center gap-6">
@@ -27,9 +27,8 @@ const PotsCard = () => {
             >
               <span
                 className={`block h-[40px] w-[4px] rounded-full`}
-                style={{backgroundColor: pot.theme}}
-              >
-              </span>
+                style={{ backgroundColor: pot.theme }}
+              ></span>
               <div>
                 <p className="text-grey500 text-[.8em]">{pot.name}</p>
                 <p className="text-grey900 font-bold text-[.9em]">

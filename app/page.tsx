@@ -14,7 +14,7 @@ export default function Home() {
             <PotsCard />
             <TransactionsCard />
           </div>
-          <div>
+          <div className="xl:grow">
             <BudgetsCard />
             <RecurringBillsCard />
           </div>
