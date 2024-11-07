@@ -9,7 +9,7 @@ const Transactions = () => {
       <h3 className="text-[2em] font-bold">Transactions</h3>
       <div className="mt-5 card-style">
         <div className="flex-row gap-2">
-          <div className="flex-row border border-grey500 rounded-lg p-3 grow max-w-[320px] min-w-[100px]">
+          <div className="flex-row border border-grey500 rounded-lg p-3 grow  lg:max-w-[320px] md:max-w-[200px] min-w-[100px]">
             {" "}
             <input
               type="text"
@@ -47,13 +47,23 @@ const Transactions = () => {
           </div>
         </div>
 
-        
+        <div className="border-b-[1px] border-gray-200 md:pb-8 mt-8 ">
+          <div className="hidden md:flex-row text-[.8em] text-grey500">
+            <p>Recipient / Sender</p>
+            <div className="md:flex-row md:grow md:max-w-[350px] lg:max-w-[450px]">
+              <p>Category</p>
+              <p>Transaction Date</p>
+              <p>Amount</p>
+            </div>
+          </div>
+        </div>
         {data.transactions.map((transaction, i) => (
           <div key={i}>
             <Transaction
               transaction={transaction}
               index={i}
               arrLength={data.transactions.length}
+              category={transaction.category}
             />
           </div>
         ))}

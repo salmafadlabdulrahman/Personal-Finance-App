@@ -31,6 +31,9 @@ const config: Config = {
         "gold": "#CAB361",
         "orange": "#BE6C49",
       },
+      screens: {
+        
+      }
     },
   },
   plugins: [],

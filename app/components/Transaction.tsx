@@ -4,6 +4,7 @@ interface TransactionProps {
   transaction: Transaction;
   index: number;
   arrLength: number;
+  category?: string;
 }
 
 interface Transaction {
@@ -15,7 +16,12 @@ interface Transaction {
   recurring: boolean;
 }
 
-const Transaction = ({ transaction, index, arrLength }: TransactionProps) => {
+const Transaction = ({
+  transaction,
+  index,
+  arrLength,
+  category,
+}: TransactionProps) => {
   const convertDate = (transDate: string) => {
     const date = new Date(transDate);
     const formattedDate = new Intl.DateTimeFormat("en-GB", {
@@ -34,7 +40,7 @@ const Transaction = ({ transaction, index, arrLength }: TransactionProps) => {
   return (
     <div>
       <div
-        className={`flex-row h-[90px] ${
+        className={`flex-row ${category ? "md:h-[60px] h-[70px]" : "h-[90px]"} ${
           index !== arrLength - 1 ? "border-b-[1px] border-gray-200" : ""
         }`}
       >
@@ -50,16 +56,34 @@ const Transaction = ({ transaction, index, arrLength }: TransactionProps) => {
           />
 
           <div>
+            {/*name */}
             <p className="font-bold text-[.9em]">{transaction.name}</p>
+            {/*Category */}
+            {category && (
+              <p className="text-[.8em] text-grey500 md:hidden">{category}</p>
+            )}
           </div>
         </div>
-        <div className="text-right">
+
+        <div
+          className={`text-right ${
+            category && "md:flex-row md:grow md:max-w-[350px] lg:max-w-[450px]"
+          }`}
+        >
+          {category && (
+            <p className="hidden text-[.8em] text-grey500 md:block">
+              {category}
+            </p>
+          )}
+          {/*Amount */}
           <p
-            className={`mb-2 text-[.9em] font-bold ${
-              transaction.amount.toString().split("")[0] === "-"
+            className={`${
+              category ? "md:mb-0" : "mb-2"
+            } text-[.9em] font-bold ${
+              transaction.amount.toString()[0] === "-"
                 ? "text-grey900"
                 : "text-green"
-            }`}
+            } ${category && "md:order-2"}`}
           >
             $
             {transaction.amount.toLocaleString("en-US", {
@@ -67,6 +91,7 @@ const Transaction = ({ transaction, index, arrLength }: TransactionProps) => {
               maximumFractionDigits: 2,
             })}
           </p>
+          {/*Date */}
           <p className="text-[.8em] text-grey500">
             {convertDate(transaction.date)}
           </p>
