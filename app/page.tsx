@@ -12,7 +12,7 @@ export default function Home() {
         <div className="xl:flex gap-5 mt-5">
           <div>
             <PotsCard />
-            <TransactionsCard header={true} link={true} />
+            <TransactionsCard />
           </div>
           <div className="xl:grow">
             <BudgetsCard />
