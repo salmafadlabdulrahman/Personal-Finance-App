@@ -45,10 +45,9 @@ const BudgetCircleChart = ({ data }) => {
       style={{
         position: "relative",
         width: "100%",
-        maxWidth: "240px",
         height: "auto",
       }}
-      className="mt-4 m-auto"
+      className="mt-4 m-auto max-w-[240px] xl:max-w-[180px]"
     >
       <Doughnut data={chartData} options={chartOptions} />
       <div

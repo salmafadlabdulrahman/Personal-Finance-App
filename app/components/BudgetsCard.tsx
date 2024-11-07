@@ -7,7 +7,7 @@ const budgets = budgetData.budgets;
 const BudgetsCard = () => {
   return (
     <div
-      className={`card-style mb-[2em] lg:mb-0 lg:pt-[2em] lg:pb-[4em] lg:px-[2em]`}
+      className={`card-style mb-[2em] lg:mb-0 lg:pt-[2em] lg:pb-[4em] `} 
     >
       <CardHeader
         title="Budgets"
