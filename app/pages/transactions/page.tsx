@@ -1,14 +1,16 @@
 import Transaction from "@/app/components/Transaction";
 import data from "../../../data.json";
 import Image from "next/image";
+import Button from "@/app/components/Button";
 
 const Transactions = () => {
   return (
     <div className="pages-padding md:p-9">
       <h3 className="text-[2em] font-bold">Transactions</h3>
       <div className="mt-5 card-style">
-        <div className="flex-row">
-          <div className="flex-row border border-grey500 w-[320px] p-3 rounded-lg">
+        <div className="flex-row border border-indigo-500">
+          <div className="button-style flex-row  p-3">
+            {" "}
             <input
               type="text"
               placeholder="Search transactions"
@@ -22,7 +24,12 @@ const Transactions = () => {
             />
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="hidden md:flex gap-4">
+            <Button text="Sort by" sortType="Latest" />
+            <Button text="Category" sortType="All transactions" />
+          </div>
+
+          <div className="flex items-center gap-6 md:hidden">
             <Image
               src={"/assets/images/icon-sort-mobile.svg"}
               alt="ellipsis icon"
@@ -40,6 +47,7 @@ const Transactions = () => {
           </div>
         </div>
 
+        
         {data.transactions.map((transaction, i) => (
           <div key={i}>
             <Transaction
@@ -55,3 +63,11 @@ const Transactions = () => {
 };
 
 export default Transactions;
+/*<div className="hidden md:flex-row text-[.8em]">
+          <div className="">Recipient / Sender</div>
+          <div className="flex gap-2">
+            <p>Category</p>
+            <p>Transaction Date</p>
+            <p>Amount</p>
+          </div>
+        </div> */

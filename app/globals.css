@@ -34,4 +34,12 @@ body {
   .pages-padding {
     padding: 1.25rem;
   }
+
+  .button-style {
+    display: flex;
+    border-radius: 0.5rem;
+    /*padding: 0.75rem;*/
+    border-width: 1px;
+    border-color: #696868 /*##B3B3B3 */
+  }
 }

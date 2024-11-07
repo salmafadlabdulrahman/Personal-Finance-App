@@ -48,7 +48,10 @@ const Transaction = ({ transaction, index, arrLength }: TransactionProps) => {
             quality={100}
             unoptimized
           />
-          <p className="font-bold text-[.9em]">{transaction.name}</p>
+
+          <div>
+            <p className="font-bold text-[.9em]">{transaction.name}</p>
+          </div>
         </div>
         <div className="text-right">
           <p
