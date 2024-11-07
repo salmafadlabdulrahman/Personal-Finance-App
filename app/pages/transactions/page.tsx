@@ -23,10 +23,36 @@ const Transactions = () => {
               height={15}
             />
           </div>
-
           <div className="hidden md:flex gap-4">
-            <Button text="Sort by" sortType="Latest" />
-            <Button text="Category" sortType="All transactions" />
+            <Button
+              text="Sort by"
+              sortType="Latest"
+              listItems={[
+                "Latest",
+                "oldest",
+                "A to Z",
+                "Z to A",
+                "Highest",
+                "Lowest",
+              ]}
+            />
+            <Button
+              text="Category"
+              sortType="All transactions"
+              listItems={[
+                "All Transactions",
+                "Dining Out",
+                "General",
+                "Groceries",
+                "Entertainment",
+                "Transportation",
+                "Lifestyle",
+                "Personal Care",
+                "Education",
+                "Bills",
+                "Shopping",
+              ]}
+            />
           </div>
 
           <div className="flex items-center gap-6 md:hidden">
