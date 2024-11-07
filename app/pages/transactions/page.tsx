@@ -8,13 +8,13 @@ const Transactions = () => {
     <div className="pages-padding md:p-9">
       <h3 className="text-[2em] font-bold">Transactions</h3>
       <div className="mt-5 card-style">
-        <div className="flex-row border border-indigo-500">
-          <div className="button-style flex-row  p-3">
+        <div className="flex-row gap-2">
+          <div className="flex-row border border-grey500 rounded-lg p-3 grow max-w-[320px] min-w-[100px]">
             {" "}
             <input
               type="text"
               placeholder="Search transactions"
-              className="text-[.9em] outline-none"
+              className="text-[.9em] outline-none w-full"
             />
             <Image
               src={"/assets/images/icon-search.svg"}
@@ -63,11 +63,3 @@ const Transactions = () => {
 };
 
 export default Transactions;
-/*<div className="hidden md:flex-row text-[.8em]">
-          <div className="">Recipient / Sender</div>
-          <div className="flex gap-2">
-            <p>Category</p>
-            <p>Transaction Date</p>
-            <p>Amount</p>
-          </div>
-        </div> */
