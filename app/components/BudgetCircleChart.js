@@ -31,7 +31,7 @@ const BudgetCircleChart = ({ data }) => {
     plugins: {
       tooltip: {
         callbacks: {
-          label: (context) => `${context.label}: $${context.raw}`, 
+          label: (context) => `${context.label}: $${context.raw}`,
         },
       },
       legend: {
@@ -42,7 +42,12 @@ const BudgetCircleChart = ({ data }) => {
 
   return (
     <div
-      style={{ position: "relative", width: "240px", height: "240px" }}
+      style={{
+        position: "relative",
+        width: "100%",
+        maxWidth: "240px",
+        height: "auto",
+      }}
       className="mt-4 m-auto"
     >
       <Doughnut data={chartData} options={chartOptions} />

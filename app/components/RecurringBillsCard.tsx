@@ -8,7 +8,7 @@ const bills = [
 
 const RecurringBillsCard = () => {
   return (
-    <div className="card-style mt-[2.2em]">
+    <div className="card-style mt-[2.2em] lg:p-8 lg:pb-10">
       <CardHeader
         title="Recurring Bills"
         detailsLink="See Details"

@@ -40,9 +40,9 @@ const Transaction = ({
   return (
     <div>
       <div
-        className={`flex-row ${category ? "md:h-[60px] h-[70px]" : "h-[90px]"} ${
-          index !== arrLength - 1 ? "border-b-[1px] border-gray-200" : ""
-        }`}
+        className={`flex-row ${
+          category ? "md:h-[60px] h-[70px]" : "h-[90px]"
+        } ${index !== arrLength - 1 ? "border-b-[1px] border-gray-200" : ""}`}
       >
         <div className="flex items-center gap-5 ">
           <Image
@@ -56,9 +56,7 @@ const Transaction = ({
           />
 
           <div>
-            {/*name */}
             <p className="font-bold text-[.9em]">{transaction.name}</p>
-            {/*Category */}
             {category && (
               <p className="text-[.8em] text-grey500 md:hidden">{category}</p>
             )}
@@ -75,7 +73,6 @@ const Transaction = ({
               {category}
             </p>
           )}
-          {/*Amount */}
           <p
             className={`${
               category ? "md:mb-0" : "mb-2"
@@ -85,13 +82,12 @@ const Transaction = ({
                 : "text-green"
             } ${category && "md:order-2"}`}
           >
-            $
-            {transaction.amount.toLocaleString("en-US", {
+            {transaction.amount.toString()[0] === "-" ? "-" : ""}$
+            {Math.abs(transaction.amount).toLocaleString("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}
           </p>
-          {/*Date */}
           <p className="text-[.8em] text-grey500">
             {convertDate(transaction.date)}
           </p>

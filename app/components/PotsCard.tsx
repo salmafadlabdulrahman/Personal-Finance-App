@@ -15,7 +15,7 @@ const PotsCard = () => {
             val={850}
             textColor="text-grey900"
             icon="/assets/images/icon-pot.svg"
-            twoDigits={true}
+            twoDigits={false}
           />
         </div>
 
