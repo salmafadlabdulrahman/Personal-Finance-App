@@ -1,9 +1,27 @@
+"use client";
+
 import Transaction from "@/app/components/Transaction";
 import data from "../../../data.json";
 import Image from "next/image";
 import Button from "@/app/components/Button";
+import { useState } from "react";
+//import { TransactionProps } from "@/app/types";
+
+
 
 const Transactions = () => {
+  const [transactionsType, setTransactionsType] = useState("Latest");
+  const [transactionCategory, setTransactionCategory] =
+    useState("All transaction");
+
+  /*console.log(transactionsType)
+  const filterType = (transArr:TransactionProps[]) => {
+    const allData = transArr.sort((a, b) => b.amount - a.amount)
+    return allData
+  }*/
+
+  //filterType(data.transactions)
+  //parseInt(b.date) - parseInt(a.date)
   return (
     <div className="pages-padding md:p-9">
       <h3 className="text-[2em] font-bold">Transactions</h3>
@@ -35,6 +53,8 @@ const Transactions = () => {
                 "Highest",
                 "Lowest",
               ]}
+              transactionsType={transactionsType}
+              setTransactionsType={setTransactionsType}
             />
             <Button
               text="Category"
@@ -52,6 +72,8 @@ const Transactions = () => {
                 "Bills",
                 "Shopping",
               ]}
+              setTransactionCategory={setTransactionCategory}
+              transactionCategory={transactionCategory}
             />
           </div>
 

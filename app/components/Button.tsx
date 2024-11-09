@@ -7,15 +7,27 @@ interface ButtonProps {
   text: string;
   sortType: string;
   listItems: string[];
+  transactionsType?: string;
+  transactionCategory?: string;
+  setTransactionsType?: (type: string) => void;
+  setTransactionCategory?: (type: string) => void;
 }
 
-const Button = ({ text, sortType, listItems }: ButtonProps) => {
-  const [openList, setOpenList] = useState(true);
-
-  //console.log(openList)
+const Button = ({ text, sortType, listItems, setTransactionsType, setTransactionCategory, transactionsType, transactionCategory }: ButtonProps) => {
+  const [openList, setOpenList] = useState(false);
 
   const toggleList = () => {
     setOpenList((val) => !val);
+  };
+
+  const handleItemClick = (item: string) => {
+    if(setTransactionsType) {
+      setTransactionsType(item); 
+      console.log(transactionsType)
+    } if(setTransactionCategory) {
+      setTransactionCategory(item)
+      console.log(transactionCategory)
+    }
   };
 
   return (
@@ -44,6 +56,7 @@ const Button = ({ text, sortType, listItems }: ButtonProps) => {
                     ? "border-b-[1px] border-grey100"
                     : ""
                 } text-[.9em] p-2 cursor-pointer`}
+                 onClick={() => handleItemClick(item)}
               >
                 {item}
               </li>

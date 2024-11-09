@@ -1,19 +1,11 @@
 import Image from "next/image";
+import { TransactionProps } from "../types";
 
-interface TransactionProps {
-  transaction: Transaction;
+interface TransactionsProps {
+  transaction: TransactionProps;
   index: number;
   arrLength: number;
   category?: string;
-}
-
-interface Transaction {
-  avatar: string;
-  name: string;
-  category: string;
-  date: string;
-  amount: number;
-  recurring: boolean;
 }
 
 const Transaction = ({
@@ -21,7 +13,7 @@ const Transaction = ({
   index,
   arrLength,
   category,
-}: TransactionProps) => {
+}: TransactionsProps) => {
   const convertDate = (transDate: string) => {
     const date = new Date(transDate);
     const formattedDate = new Intl.DateTimeFormat("en-GB", {
