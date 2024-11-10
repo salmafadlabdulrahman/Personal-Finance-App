@@ -13,3 +13,15 @@ export interface BudgetProps {
   maximum: number;
   theme: string;
 }
+
+export interface ButtonProps {
+  text: string;
+  sortType: string;
+  listItems: string[];
+  transactionsType?: string;
+  transactionCategory?: string;
+  setTransactionsType?: (type: string) => void;
+  setTransactionCategory?: (type: string) => void;
+  transactionsArr: TransactionProps[];
+  setTransactionsArr: (arr: TransactionProps[]) => void;
+}

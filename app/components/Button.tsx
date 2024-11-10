@@ -2,31 +2,45 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { ButtonProps, TransactionProps } from "../types";
 
-interface ButtonProps {
-  text: string;
-  sortType: string;
-  listItems: string[];
-  transactionsType?: string;
-  transactionCategory?: string;
-  setTransactionsType?: (type: string) => void;
-  setTransactionCategory?: (type: string) => void;
-}
-
-const Button = ({ text, sortType, listItems, setTransactionsType, setTransactionCategory, transactionsType, transactionCategory }: ButtonProps) => {
+const Button = ({
+  text,
+  sortType,
+  listItems,
+  setTransactionsType,
+  transactionsType,
+  transactionCategory,
+  transactionsArr,
+  setTransactionsArr,
+}: ButtonProps) => {
   const [openList, setOpenList] = useState(false);
 
   const toggleList = () => {
     setOpenList((val) => !val);
   };
 
-  const handleItemClick = (item: string) => {
-    if(setTransactionsType) {
-      setTransactionsType(item); 
-      console.log(transactionsType)
-    } if(setTransactionCategory) {
-      setTransactionCategory(item)
-      console.log(transactionCategory)
+  const filterType = (sortingType: string) => {
+    if (!setTransactionsType) return;
+    const allTransactions = [...transactionsArr];
+
+    const comparisonFunctions: Record<
+      string,
+      (a: TransactionProps, b: TransactionProps) => number
+    > = {
+      Lowest: (a, b) => a.amount - b.amount,
+      Highest: (a, b) => b.amount - a.amount,
+      "A to Z": (a, b) => a.name.localeCompare(b.name),
+      "Z to A": (a, b) => b.name.localeCompare(a.name),
+      Oldest: (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+      Latest: (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    };
+
+    const compareFn = comparisonFunctions[sortingType];
+    if (compareFn) {
+      allTransactions.sort(compareFn);
+      setTransactionsArr(allTransactions);
+      setTransactionsType(sortingType);
     }
   };
 
@@ -35,7 +49,11 @@ const Button = ({ text, sortType, listItems, setTransactionsType, setTransaction
       <div className="flex items-center gap-2" onClick={toggleList}>
         <p className="text-[.9em] text-grey500">{text}</p>
         <button className="button-style flex-row gap-5 px-4 py-3">
-          <p className="text-[.9em]">{sortType}</p>
+          <p className="text-[.9em]">
+            {transactionsType || transactionCategory
+              ? transactionsType || transactionCategory
+              : sortType}
+          </p>
           <Image
             src={"/assets/images/icon-caret-down.svg"}
             alt="arrow down"
@@ -56,7 +74,7 @@ const Button = ({ text, sortType, listItems, setTransactionsType, setTransaction
                     ? "border-b-[1px] border-grey100"
                     : ""
                 } text-[.9em] p-2 cursor-pointer`}
-                 onClick={() => handleItemClick(item)}
+                onClick={() => filterType(item)}
               >
                 {item}
               </li>

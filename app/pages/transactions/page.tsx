@@ -5,23 +5,13 @@ import data from "../../../data.json";
 import Image from "next/image";
 import Button from "@/app/components/Button";
 import { useState } from "react";
-//import { TransactionProps } from "@/app/types";
-
-
 
 const Transactions = () => {
   const [transactionsType, setTransactionsType] = useState("Latest");
   const [transactionCategory, setTransactionCategory] =
     useState("All transaction");
+  const [transactionsArr, setTransactionsArr] = useState(data.transactions);
 
-  /*console.log(transactionsType)
-  const filterType = (transArr:TransactionProps[]) => {
-    const allData = transArr.sort((a, b) => b.amount - a.amount)
-    return allData
-  }*/
-
-  //filterType(data.transactions)
-  //parseInt(b.date) - parseInt(a.date)
   return (
     <div className="pages-padding md:p-9">
       <h3 className="text-[2em] font-bold">Transactions</h3>
@@ -47,7 +37,7 @@ const Transactions = () => {
               sortType="Latest"
               listItems={[
                 "Latest",
-                "oldest",
+                "Oldest",
                 "A to Z",
                 "Z to A",
                 "Highest",
@@ -55,6 +45,8 @@ const Transactions = () => {
               ]}
               transactionsType={transactionsType}
               setTransactionsType={setTransactionsType}
+              transactionsArr={transactionsArr}
+              setTransactionsArr={setTransactionsArr}
             />
             <Button
               text="Category"
@@ -74,6 +66,8 @@ const Transactions = () => {
               ]}
               setTransactionCategory={setTransactionCategory}
               transactionCategory={transactionCategory}
+              transactionsArr={transactionsArr}
+              setTransactionsArr={setTransactionsArr}
             />
           </div>
 
@@ -105,7 +99,7 @@ const Transactions = () => {
             </div>
           </div>
         </div>
-        {data.transactions.map((transaction, i) => (
+        {transactionsArr.map((transaction, i) => (
           <div key={i}>
             <Transaction
               transaction={transaction}
