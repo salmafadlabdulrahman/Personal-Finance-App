@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ButtonProps, TransactionProps } from "../types";
+import data from "../../data.json";
 
 const Button = ({
   text,
@@ -13,6 +14,7 @@ const Button = ({
   transactionCategory,
   transactionsArr,
   setTransactionsArr,
+  setTransactionCategory,
 }: ButtonProps) => {
   const [openList, setOpenList] = useState(false);
 
@@ -41,7 +43,27 @@ const Button = ({
       allTransactions.sort(compareFn);
       setTransactionsArr(allTransactions);
       setTransactionsType(sortingType);
+      setOpenList(false);
     }
+  };
+
+  const filterCategory = (category: string) => {
+    if (!setTransactionCategory) return;
+
+    const allTransactions = data.transactions;
+
+    if (category === "All Transactions") {
+      setTransactionsArr(allTransactions);
+      return;
+    }
+
+    const filteredTransactions = allTransactions.filter(
+      (transaction) => transaction.category === category
+    );
+
+    setTransactionsArr(filteredTransactions);
+    setTransactionCategory(category);
+    setOpenList(false);
   };
 
   return (
@@ -74,7 +96,9 @@ const Button = ({
                     ? "border-b-[1px] border-grey100"
                     : ""
                 } text-[.9em] p-2 cursor-pointer`}
-                onClick={() => filterType(item)}
+                onClick={() =>
+                  transactionsType ? filterType(item) : filterCategory(item)
+                }
               >
                 {item}
               </li>

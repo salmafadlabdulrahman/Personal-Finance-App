@@ -1,12 +1,5 @@
 import Image from "next/image";
-import { TransactionProps } from "../types";
-
-interface TransactionsProps {
-  transaction: TransactionProps;
-  index: number;
-  arrLength: number;
-  category?: string;
-}
+import { TransactionsProps } from "../types";
 
 const Transaction = ({
   transaction,
@@ -61,7 +54,7 @@ const Transaction = ({
           }`}
         >
           {category && (
-            <p className="hidden text-[.8em] text-grey500 md:block">
+            <p className="hidden text-[.8em] text-grey500 md:block w-[70px] text-left">
               {category}
             </p>
           )}
@@ -72,7 +65,7 @@ const Transaction = ({
               transaction.amount.toString()[0] === "-"
                 ? "text-grey900"
                 : "text-green"
-            } ${category && "md:order-2"}`}
+            } ${category && "md:order-2 w-[90px]"}`}
           >
             {transaction.amount.toString()[0] === "-" ? "-" : ""}$
             {Math.abs(transaction.amount).toLocaleString("en-US", {
@@ -80,7 +73,11 @@ const Transaction = ({
               maximumFractionDigits: 2,
             })}
           </p>
-          <p className="text-[.8em] text-grey500">
+          <p
+            className={`text-[.8em] text-grey500 w-[100px] ${
+              category && "text-center"
+            }`}
+          >
             {convertDate(transaction.date)}
           </p>
         </div>

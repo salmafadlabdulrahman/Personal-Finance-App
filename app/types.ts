@@ -25,3 +25,11 @@ export interface ButtonProps {
   transactionsArr: TransactionProps[];
   setTransactionsArr: (arr: TransactionProps[]) => void;
 }
+
+
+export interface TransactionsProps {
+  transaction: TransactionProps;
+  index: number;
+  arrLength: number;
+  category?: string;
+}

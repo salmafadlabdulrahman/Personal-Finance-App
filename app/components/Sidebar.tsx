@@ -13,7 +13,7 @@ export default function Sidebar() {
     <div
       className={`bg-grey900 h-screen ${
         minimizeSidebar ? "w-[90px]" : "w-[305px]"
-      } rounded-se-xl fixed flex flex-col`}
+      } rounded-se-xl fixed flex flex-col `}
     >
       <div className={`mt-8 h-screen`}>
         <Link href={"/"}>
