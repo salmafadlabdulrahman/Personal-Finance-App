@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   padding: 0;
   margin: 0;
@@ -13,7 +12,7 @@
 
 body {
   font-family: "Public Sans", sans-serif;
-  background: #F8F4F0;
+  background: #f8f4f0;
 }
 
 @layer utilities {
@@ -22,14 +21,28 @@ body {
     margin-bottom: 2em;
     padding: 1.25rem;
     border-radius: 0.75rem;
-    color: #201F24;
-    
+    color: #201f24;
   }
   .flex-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
+  .flex-row-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pagination-border {
+    border: 1px solid #6b7280;
+    border-radius: 0.5rem;
+    width: 55px;
+    height: 35px;
+  }
+
+  /*border border-gray-500 w-[55px] h-[35px] rounded-lg flex-row-center*/
 
   .pages-padding {
     padding: 1.25rem;
@@ -39,7 +52,7 @@ body {
     display: flex;
     border-radius: 0.5rem;
     border-width: 1px;
-    border-color: #696868
+    border-color: #696868;
   }
   .dropdown-list {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

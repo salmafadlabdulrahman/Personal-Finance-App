@@ -5,12 +5,15 @@ import data from "../../../data.json";
 import Image from "next/image";
 import Button from "@/app/components/Button";
 import { useState } from "react";
+import SortByList from "@/app/components/SortByList";
+import { categoriesList, typesList } from "@/app/data";
 
 const Transactions = () => {
   const [transactionsType, setTransactionsType] = useState("Latest");
   const [transactionCategory, setTransactionCategory] =
-    useState("All transaction");
+    useState("All Transactions");
   const [transactionsArr, setTransactionsArr] = useState(data.transactions);
+  const [typesMenu, setTypesMenu] = useState(false);
 
   return (
     <div className="pages-padding md:p-9">
@@ -34,67 +37,68 @@ const Transactions = () => {
           <div className="hidden md:flex gap-4">
             <Button
               text="Sort by"
-              sortType="Latest"
-              listItems={[
-                "Latest",
-                "Oldest",
-                "A to Z",
-                "Z to A",
-                "Highest",
-                "Lowest",
-              ]}
+              sortType={transactionsType}
+              listItems={typesList}
               transactionsType={transactionsType}
               setTransactionsType={setTransactionsType}
-              transactionsArr={transactionsArr}
+              setTransactionCategory={setTransactionCategory}
+              transactionCategory={transactionCategory}
               setTransactionsArr={setTransactionsArr}
             />
             <Button
               text="Category"
-              sortType="All transactions"
-              listItems={[
-                "All Transactions",
-                "Dining Out",
-                "General",
-                "Groceries",
-                "Entertainment",
-                "Transportation",
-                "Lifestyle",
-                "Personal Care",
-                "Education",
-                "Bills",
-                "Shopping",
-              ]}
+              sortType={transactionCategory}
+              listItems={categoriesList}
               setTransactionCategory={setTransactionCategory}
               transactionCategory={transactionCategory}
-              transactionsArr={transactionsArr}
+              transactionsType={transactionsType}
+              setTransactionsType={setTransactionsType}
               setTransactionsArr={setTransactionsArr}
             />
           </div>
 
           <div className="flex items-center gap-6 md:hidden">
-            <Image
-              src={"/assets/images/icon-sort-mobile.svg"}
-              alt="ellipsis icon"
-              width={18}
-              height={18}
-              className="cursor-pointer"
-            />
-            <Image
-              src={"/assets/images/icon-filter-mobile.svg"}
-              alt="filter icon"
-              width={18}
-              height={18}
-              className="cursor-pointer"
-            />
+            <div>
+              <Image
+                src={"/assets/images/icon-sort-mobile.svg"}
+                alt="ellipsis icon"
+                width={18}
+                height={18}
+                className="cursor-pointer"
+              />
+              {typesMenu && (
+                <SortByList
+                  list={typesList}
+                  sortingMethod={transactionsType}
+                  setTransactionsType={setTransactionsType}
+                  setTransactionCategory={setTransactionCategory}
+                  transactionsArr={transactionsArr}
+                  setTransactionsArr={setTransactionsArr}
+                  setOpenList={setTypesMenu}
+                  transactionsType={transactionsType}
+                  transactionsCategory={transactionCategory}
+                />
+              )}
+            </div>
+
+            <div>
+              <Image
+                src={"/assets/images/icon-filter-mobile.svg"}
+                alt="filter icon"
+                width={18}
+                height={18}
+                className="cursor-pointer"
+              />
+            </div>
           </div>
         </div>
 
         <div className="border-b-[1px] border-gray-200 md:pb-8 mt-8 ">
           <div className="hidden md:flex-row text-[.8em] text-grey500">
             <p>Recipient / Sender</p>
-            <div className="md:flex-row md:grow md:max-w-[360px] lg:max-w-[460px] ">
-              <p className="pl-1">Category</p>
-              <p className="w-[110px]">Transaction Date</p>
+            <div className="md:flex-row md:grow md:max-w-[350px] lg:max-w-[450px]">
+              <p>Category</p>
+              <p>Transaction Date</p>
               <p>Amount</p>
             </div>
           </div>
