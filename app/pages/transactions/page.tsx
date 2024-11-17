@@ -14,6 +14,14 @@ const Transactions = () => {
     useState("All Transactions");
   const [transactionsArr, setTransactionsArr] = useState(data.transactions);
   const [typesMenu, setTypesMenu] = useState(false);
+  const [searchVal, setSearchVal] = useState("");
+
+  const allTransactions = [...transactionsArr];
+  const filteredTransactions = allTransactions.filter((transaction) =>
+    transaction.name
+      .toLocaleLowerCase()
+      .startsWith(searchVal.toLocaleLowerCase())
+  );
 
   return (
     <div className="pages-padding md:p-9">
@@ -26,6 +34,8 @@ const Transactions = () => {
               type="text"
               placeholder="Search transactions"
               className="text-[.9em] outline-none w-full"
+              value={searchVal}
+              onChange={(event) => setSearchVal(event.target.value)}
             />
             <Image
               src={"/assets/images/icon-search.svg"}
@@ -103,7 +113,7 @@ const Transactions = () => {
             </div>
           </div>
         </div>
-        {transactionsArr.map((transaction, i) => (
+        {filteredTransactions.map((transaction, i) => (
           <div key={i}>
             <Transaction
               transaction={transaction}
