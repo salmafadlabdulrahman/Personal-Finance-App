@@ -13,7 +13,8 @@ const Transactions = () => {
   const [transactionCategory, setTransactionCategory] =
     useState("All Transactions");
   const [transactionsArr, setTransactionsArr] = useState(data.transactions);
-  const [typesMenu, setTypesMenu] = useState(false);
+  const [sortMenu, setSortMenu] = useState(false);
+  const [filterMenu, setFilterMenu] = useState(false);
   const [searchVal, setSearchVal] = useState("");
 
   const allTransactions = [...transactionsArr];
@@ -68,7 +69,7 @@ const Transactions = () => {
           </div>
 
           <div className="flex items-center gap-6 md:hidden">
-            <div>
+            <div onClick={() => setSortMenu((val) => !val)}>
               <Image
                 src={"/assets/images/icon-sort-mobile.svg"}
                 alt="ellipsis icon"
@@ -76,7 +77,7 @@ const Transactions = () => {
                 height={18}
                 className="cursor-pointer"
               />
-              {typesMenu && (
+              {sortMenu && (
                 <SortByList
                   list={typesList}
                   sortingMethod={transactionsType}
@@ -84,14 +85,16 @@ const Transactions = () => {
                   setTransactionCategory={setTransactionCategory}
                   transactionsArr={transactionsArr}
                   setTransactionsArr={setTransactionsArr}
-                  setOpenList={setTypesMenu}
+                  closeMenu={setSortMenu}
+                  menuState={sortMenu}
                   transactionsType={transactionsType}
                   transactionsCategory={transactionCategory}
+                  stylePosition="right-20"
                 />
               )}
             </div>
 
-            <div>
+            <div onClick={() => setFilterMenu((val) => !val)}>
               <Image
                 src={"/assets/images/icon-filter-mobile.svg"}
                 alt="filter icon"
@@ -99,6 +102,21 @@ const Transactions = () => {
                 height={18}
                 className="cursor-pointer"
               />
+              {filterMenu && (
+                <SortByList
+                  list={categoriesList}
+                  sortingMethod={transactionCategory}
+                  setTransactionsType={setTransactionsType}
+                  setTransactionCategory={setTransactionCategory}
+                  transactionsArr={transactionsArr}
+                  setTransactionsArr={setTransactionsArr}
+                  closeMenu={setFilterMenu}
+                  menuState={filterMenu}
+                  transactionsType={transactionsType}
+                  transactionsCategory={transactionCategory}
+                  stylePosition="right-[40px]"
+                />
+              )}
             </div>
           </div>
         </div>

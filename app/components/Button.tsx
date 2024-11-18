@@ -45,7 +45,7 @@ const Button = ({
           setTransactionsArr={setTransactionsArr}
           setTransactionsType={setTransactionsType}
           setTransactionCategory={setTransactionCategory}
-          setOpenList={setOpenList}
+          closeMenu={setOpenList}
           transactionsType={transactionsType}
           transactionsCategory={transactionCategory}
         />

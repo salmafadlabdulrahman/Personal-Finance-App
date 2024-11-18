@@ -42,5 +42,7 @@ export interface SortByListProps {
   transactionsCategory: string;
   transactionsArr?: TransactionProps[];
   setTransactionsArr: (arr: TransactionProps[]) => void;
-  setOpenList: (type: boolean) => void;
+  closeMenu: (type: boolean) => void;
+  menuState?:boolean;
+  stylePosition?:string
 }

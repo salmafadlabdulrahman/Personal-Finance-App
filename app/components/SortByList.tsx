@@ -7,9 +7,11 @@ const SortByList = ({
   setTransactionsType,
   setTransactionCategory,
   setTransactionsArr,
-  setOpenList,
+  closeMenu,
   transactionsType,
   transactionsCategory,
+  stylePosition,
+  menuState,
 }: SortByListProps) => {
   const sortList = (item: string) => {
     const sortTypes: Record<
@@ -42,13 +44,20 @@ const SortByList = ({
     const newTransactions = [...filteredTransactions].sort(compareFn);
 
     setTransactionsArr(newTransactions);
-    setOpenList(false);
     setTransactionsType(curType);
     setTransactionCategory(curCategory);
+    closeMenu(false);
+    if (menuState) {
+      closeMenu(true);
+    }
   };
 
   return (
-    <div className="bg-white absolute dropdown-list p-3 w-[180px] right-0 mt-2 rounded-lg">
+    <div
+      className={`bg-white absolute dropdown-list p-3 w-[180px] ${
+        stylePosition ? stylePosition : "right-0"
+      } mt-2 rounded-lg`}
+    >
       <ul>
         {list.map((item, i) => (
           <li
