@@ -50,9 +50,9 @@ const Transaction = ({
 
         <div
           className={`text-right ${
-            category && "md:flex-row md:grow md:max-w-[350px] lg:max-w-[450px]"
+            category && "md:flex-row md:grow md:max-w-[350px] lg:max-w-[470px]  "
           }`}
-        >
+        > 
           {category && (
             <p className="hidden text-[.8em] text-grey500 md:block w-[70px] text-left">
               {category}
@@ -74,9 +74,9 @@ const Transaction = ({
             })}
           </p>
           <p
-            className={`text-[.8em] text-grey500 w-[100px] ${
-              category && "text-center"
-            }`}
+            className={`text-[.8em] text-grey500 pl-4 w-[100px] text-center ${
+              category && "text-center m-0"
+            }`} 
           >
             {convertDate(transaction.date)}
           </p>

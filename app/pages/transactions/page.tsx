@@ -141,12 +141,12 @@ const Transactions = () => {
           </div>
         </div>
 
-        <div className="border-b-[1px] border-gray-200 md:pb-8 mt-8 ">
-          <div className="hidden md:flex-row text-[.8em] text-grey500">
+        <div className="border-b-[1px] border-gray-200 md:pb-8 mt-8">
+          <div className="hidden md:flex-row text-[.8em] text-grey500 ">
             <p>Recipient / Sender</p>
-            <div className="md:flex-row md:grow md:max-w-[350px] lg:max-w-[450px]">
+            <div className="md:flex-row md:grow md:max-w-[350px] lg:max-w-[470px]">
               <p>Category</p>
-              <p>Transaction Date</p>
+              <p className="w-[140px] text-center">Transaction Date</p>
               <p>Amount</p>
             </div>
           </div>
