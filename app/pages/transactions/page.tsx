@@ -7,7 +7,9 @@ import Button from "@/app/components/Button";
 import { useState } from "react";
 import SortByList from "@/app/components/SortByList";
 import { categoriesList, typesList } from "@/app/data";
+import Pagination from "@/app/components/Pagination";
 
+const ITEMS_PER_PAGE = 10;
 const Transactions = () => {
   const [transactionsType, setTransactionsType] = useState("Latest");
   const [transactionCategory, setTransactionCategory] =
@@ -16,14 +18,32 @@ const Transactions = () => {
   const [sortMenu, setSortMenu] = useState(false);
   const [filterMenu, setFilterMenu] = useState(false);
   const [searchVal, setSearchVal] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(transactionsArr.length / ITEMS_PER_PAGE);
+
+  const goToPage = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+  };
 
   const allTransactions = [...transactionsArr];
-  const filteredTransactions = allTransactions.filter((transaction) =>
-    transaction.name
-      .toLocaleLowerCase()
-      .startsWith(searchVal.toLocaleLowerCase())
-  );
+  const filteredTransactions = allTransactions
+    .filter((transaction) =>
+      transaction.name
+        .toLocaleLowerCase()
+        .startsWith(searchVal.toLocaleLowerCase())
+    )
+    .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
+  for (let i = 1; i <= totalPages; i++) {
+    <div
+      className={`border-[1px] border-gray-500 w-[35px] h-[35px] flex-row-center rounded-lg`}
+      key={i}
+    >
+      {i + 1}
+    </div>;
+  }
   return (
     <div className="pages-padding md:p-9">
       <h3 className="text-[2em] font-bold">Transactions</h3>
@@ -141,6 +161,14 @@ const Transactions = () => {
             />
           </div>
         ))}
+
+        <div className="mt-9">
+          <Pagination
+            totalPages={totalPages}
+            goToPage={goToPage}
+            currentPage={currentPage}
+          />
+        </div>
       </div>
     </div>
   );
