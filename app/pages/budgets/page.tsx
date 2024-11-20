@@ -1,6 +1,8 @@
 import Expense from "@/app/components/Expense";
 import budgetData from "../../../data.json";
 import BudgetsCard from "@/app/components/BudgetsCard";
+import Budget from "@/app/components/Budget";
+import data from "../../../data.json"
 
 const Budgets = () => {
   return (
@@ -19,6 +21,14 @@ const Budgets = () => {
             <Expense expenses={budgetData.budgets} budgetPage={true} />
           </div>
         </div>
+      </div>
+
+      <div className="mt-6">
+        {data.budgets.map((budget, i) => (
+          <div key={i}>
+            <Budget budget={budget} />
+          </div>
+        ))}
       </div>
     </div>
   );

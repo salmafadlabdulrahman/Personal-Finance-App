@@ -1,3 +1,4 @@
+import { formatNumber } from "../functions";
 import { BudgetProps } from "../types";
 
 interface ExpenseProps {
@@ -7,22 +8,13 @@ interface ExpenseProps {
 }
 
 const Expense = ({ expenses, styles, budgetPage }: ExpenseProps) => {
-  const formatNumber = (val: number) => {
-    const formattedNumber = val.toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-
-    return formattedNumber;
-  };
-
   return (
     <div className={styles}>
       {" "}
       {expenses.map((item, i) => (
         <div
           key={i}
-          className={`flex items-center gap-4 w-[50%] md:w-[100%] mb-5 pb-5 ${
+          className={`flex items-center gap-4 w-[50%] md:w-[100%] mb-4 pb-4 ${
             i !== expenses.length - 1 ? "border-b-[1px] border-gray-200" : ""
           } ${budgetPage && "w-full"}`}
         >

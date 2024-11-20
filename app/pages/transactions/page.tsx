@@ -36,14 +36,6 @@ const Transactions = () => {
     )
     .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
-  for (let i = 1; i <= totalPages; i++) {
-    <div
-      className={`border-[1px] border-gray-500 w-[35px] h-[35px] flex-row-center rounded-lg`}
-      key={i}
-    >
-      {i + 1}
-    </div>;
-  }
   return (
     <div className="pages-padding md:p-9">
       <h3 className="text-[2em] font-bold">Transactions</h3>
