@@ -4,6 +4,8 @@ import LatestSpendings from "./LatestSpendings";
 
 interface BudgetProps {
   budget: BudgetContents;
+  editBudget: boolean;
+  setEditBudget: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface BudgetContents {
@@ -13,10 +15,10 @@ interface BudgetContents {
   theme: string;
 }
 
-const Budget = ({ budget }: BudgetProps) => {
+const Budget = ({ budget, editBudget, setEditBudget }: BudgetProps) => {
   return (
     <div className="card-style">
-      <div className="flex-row">
+      <div className="flex-row relative">
         <div className="flex items-center gap-3">
           <span
             className={`block h-[15px] w-[15px] rounded-full`}
@@ -25,12 +27,26 @@ const Budget = ({ budget }: BudgetProps) => {
           <p className="text-[1.2em] font-bold">{budget.category}</p>
         </div>
 
-        <Image
-          src={"/assets/images/icon-ellipsis.svg"}
-          width={13}
-          height={13}
-          alt="three dots icon"
-        />
+        <div
+          onClick={() => setEditBudget(() => !editBudget)}
+          className="cursor-pointer"
+        >
+          <Image
+            src={"/assets/images/icon-ellipsis.svg"}
+            width={13}
+            height={13}
+            alt="three dots icon"
+          />
+        </div>
+
+        {editBudget && (
+          <div className="card-style rounded-md absolute right-0 top-8 box-shadow text-[.9em]">
+            <div className="border-b-[1px] pb-2 border-gray-200">
+              Edit Budgets
+            </div>
+            <div className="mt-2 text-red">Delete Budgets</div>
+          </div>
+        )}
       </div>
 
       <div className="mt-4">

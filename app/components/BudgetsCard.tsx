@@ -1,4 +1,3 @@
-import React from "react";
 import CardHeader from "./CardHeader";
 import BudgetCircleChart from "./BudgetCircleChart";
 import budgetData from "../../data.json";
@@ -15,7 +14,7 @@ const BudgetsCard = ({ header = true, expenses = true }) => {
           link="/pages/budgets"
         />
       )}
-      <div className="md:flex-row lg:gap-5 lg:mt-10">
+      <div className="md:flex-row lg:gap-5 lg:mt-10 xl:mt-0">
         <div className="m-auto">
           <BudgetCircleChart data={budgets} />
         </div>
