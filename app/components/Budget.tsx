@@ -16,8 +16,9 @@ interface BudgetContents {
 }
 
 const Budget = ({ budget, editBudget, setEditBudget }: BudgetProps) => {
+  const spentPercentage = budget.amount / budget.maximum * 100;
   return (
-    <div className="card-style">
+    <div className="card-style md:p-8">
       <div className="flex-row relative">
         <div className="flex items-center gap-3">
           <span
@@ -54,9 +55,14 @@ const Budget = ({ budget, editBudget, setEditBudget }: BudgetProps) => {
           Maximum of ${formatNumber(budget.maximum)}
         </p>
 
-        <div className="progress bar"></div>
+        <div className="bg-beige-100 rounded-md mt-5 w-full h-[38px] flex items-center">
+          <div
+            className={`rounded-md h-[28px] mx-1`}
+            style={{ backgroundColor: budget.theme, width: `${spentPercentage}%` }}
+          ></div>
+        </div>
 
-        <div className="flex items-center">
+        <div className="flex items-center mt-2">
           <div className="flex items-center gap-3 mt-4 w-[50%]">
             <span
               className="block h-[40px] w-[4px] rounded-full"
