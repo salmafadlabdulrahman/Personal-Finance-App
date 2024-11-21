@@ -15,7 +15,7 @@ const Expense = ({ expenses, styles, budgetPage }: ExpenseProps) => {
         <div
           key={i}
           className={`flex items-center gap-4 w-[50%] md:w-[100%] mb-4 pb-4 ${
-            i !== expenses.length - 1 ? "border-b-[1px] border-gray-200" : ""
+            i !== expenses.length - 1 && budgetPage ? "border-b-[1px] border-gray-200" : ""
           } ${budgetPage && "w-full"}`}
         >
           <span
